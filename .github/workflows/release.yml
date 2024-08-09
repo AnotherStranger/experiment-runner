@@ -27,11 +27,6 @@ jobs:
         init-shell: >-
           bash
         cache-environment: true
-    - name: Setup Node.js
-      uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b   # v4
-      with:
-        node-version: lts/*
-      shell: micromamba-shell {0}
     - name: Setup poetry
       run: |
         poetry config virtualenvs.create false
