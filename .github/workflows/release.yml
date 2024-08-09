@@ -23,6 +23,18 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332   # v4
       with:
         fetch-depth: 0
+    - name: Cache compilation results
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-nuitka
+      with:
+        path: ~/nuitka-cache
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
     - uses: mamba-org/setup-micromamba@f8b8a1e23a26f60a44c853292711bacfd3eac822 # v1
       with:
         micromamba-version: 1.5.8-0
@@ -33,11 +45,10 @@ jobs:
     - name: Setup poetry
       run: |
         poetry config virtualenvs.create false
-        poetry install
-        poetry build
       shell: micromamba-shell {0}
     - name: Release
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NUITKA_CACHE_DIR: ~/nuitka-cache
       run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
       shell: micromamba-shell {0}
