@@ -1,3 +1,17 @@
+# [1.1.0-rc.4](https://github.com/AnotherStranger/experiment-runner/compare/v1.1.0-rc.3...v1.1.0-rc.4) (2024-08-09)
+
+
+### Bug Fixes
+
+* **CI:** create cache dir ([db4573f](https://github.com/AnotherStranger/experiment-runner/commit/db4573f6b190c5a3637c10f3b9402aefc4076048))
+* fix typo ([434518e](https://github.com/AnotherStranger/experiment-runner/commit/434518e4c3a9e41f5c463bc2fcc8fc0cfb31a0a0))
+* typo ([8a006e3](https://github.com/AnotherStranger/experiment-runner/commit/8a006e3a00fe6c6a4b1dfcbc117489ea416ae96a))
+
+
+### Features
+
+* add pytest workflow ([544dab4](https://github.com/AnotherStranger/experiment-runner/commit/544dab4bea11b6fe23351dae8bd76649cec5d5c0))
+
 # [1.1.0-rc.3](https://github.com/AnotherStranger/experiment-runner/compare/v1.1.0-rc.2...v1.1.0-rc.3) (2024-08-09)
 
 
