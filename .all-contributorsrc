@@ -39,6 +39,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "levithas",
+      "name": "levithas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/95447711?v=4",
+      "profile": "https://github.com/levithas",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
