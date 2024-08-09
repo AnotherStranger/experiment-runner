@@ -38,6 +38,6 @@ jobs:
       shell: micromamba-shell {0}
     - name: Release
       env:
-        GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
       shell: micromamba-shell {0}
