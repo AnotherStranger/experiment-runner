@@ -27,7 +27,6 @@ jobs:
         init-shell: >-
           bash
         cache-environment: true
-        post-cleanup: all
     - name: Setup Node.js
       uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b   # v4
       with:
