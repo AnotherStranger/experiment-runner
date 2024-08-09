@@ -29,6 +29,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "philipp-kohl",
+      "name": "Philipp Kohl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82207307?v=4",
+      "profile": "https://github.com/philipp-kohl",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
