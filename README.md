@@ -1,6 +1,6 @@
 # Experiment Runner
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Tool to run experiments on a Workstation/Computer
@@ -26,6 +26,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/AnotherStranger"><img src="https://avatars.githubusercontent.com/u/6563442?v=4?s=100" width="100px;" alt="Anotherstranger"/><br /><sub><b>Anotherstranger</b></sub></a><br /><a href="https://github.com/AnotherStranger/experiment-runner/commits?author=AnotherStranger" title="Code">💻</a> <a href="https://github.com/AnotherStranger/experiment-runner/commits?author=AnotherStranger" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tomvonwirth"><img src="https://avatars.githubusercontent.com/u/155973942?v=4?s=100" width="100px;" alt="tomvonwirth"/><br /><sub><b>tomvonwirth</b></sub></a><br /><a href="https://github.com/AnotherStranger/experiment-runner/commits?author=tomvonwirth" title="Code">💻</a> <a href="https://github.com/AnotherStranger/experiment-runner/commits?author=tomvonwirth" title="Documentation">📖</a></td>
     </tr>
   </tbody>
   <tfoot>

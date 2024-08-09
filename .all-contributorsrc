@@ -19,6 +19,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "tomvonwirth",
+      "name": "tomvonwirth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/155973942?v=4",
+      "profile": "https://github.com/tomvonwirth",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
