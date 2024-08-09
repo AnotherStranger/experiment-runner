@@ -1,0 +1,16 @@
+name: base
+channels:
+- conda-forge
+- default
+dependencies:
+- python=3.12
+- libpython-static
+- gcc
+- ccache
+- gxx
+- poetry
+- conda-build
+- patchelf
+- binutils
+- nodejs
+- git
