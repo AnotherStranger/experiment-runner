@@ -1,0 +1,36 @@
+name: pytest
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+  push:
+    branches:
+    - '**'
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332   # v4
+      with:
+        fetch-depth: 0
+    - uses: mamba-org/setup-micromamba@f8b8a1e23a26f60a44c853292711bacfd3eac822 # v1
+      with:
+        micromamba-version: 1.5.8-0
+        environment-file: env.yml
+        init-shell: >-
+          bash
+        cache-environment: true
+    - name: Setup poetry
+      run: |
+        poetry config virtualenvs.create false
+        poetry install
+        poetry build
+      shell: micromamba-shell {0}
+    - name: Run tests
+      run: ./test.sh
+      shell: micromamba-shell {0}
