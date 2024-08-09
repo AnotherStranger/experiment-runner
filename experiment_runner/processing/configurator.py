@@ -101,9 +101,7 @@ class Configurator(metaclass=ConfiguratorMeta):
                 ):
                     self._config = self.create_config()
                 else:
-                    print(
-                        "Aborting! Configuration path was defined but no configuration found!"
-                    )
+                    print("Aborting! Configuration path was defined but no configuration found!")
                     sys.exit(-1)
         else:
             loaded_config: Any = OmegaConf.to_container(OmegaConf.load(config_path))
@@ -113,9 +111,7 @@ class Configurator(metaclass=ConfiguratorMeta):
                 raise ValueError("Loaded config is not valid!")
 
         if self.config.use_mailer and not self.config.password:
-            self.config.password = Prompt.ask(
-                ":closed_lock_with_key: Password", password=True
-            )
+            self.config.password = Prompt.ask(":closed_lock_with_key: Password", password=True)
 
             if not self.config.password:
                 print("No Password provided. Exiting...")
@@ -128,17 +124,13 @@ class Configurator(metaclass=ConfiguratorMeta):
         if self.config_path.exists() and not Confirm.ask(
             ":warning: The config does already exist. Recreate it? :warning:"
         ):
-            loaded_config: Any = OmegaConf.to_container(
-                OmegaConf.load(self.config_path)
-            )
+            loaded_config: Any = OmegaConf.to_container(OmegaConf.load(self.config_path))
             if isinstance(loaded_config, Dict):
                 return ConfigurationFile(**loaded_config)
             raise ValueError("Loaded config is not valid!")
 
         self._config: ConfigurationFile = OmegaConf.structured(ConfigurationFile)
-        print(
-            "This config fully supports Omegaconf syntax. See: https://omegaconf.readthedocs.io/"
-        )
+        print("This config fully supports Omegaconf syntax. See: https://omegaconf.readthedocs.io/")
         print("--------- Mailer Configuration ------------")
 
         if Confirm.ask("Do you want to configure an email-address for the mailer?"):
@@ -162,9 +154,7 @@ class Configurator(metaclass=ConfiguratorMeta):
         if show_config:
             print(Syntax(OmegaConf.to_yaml(self.config).strip(), "yaml"))
 
-        should_save = Confirm.ask(
-            "Save config? Otherwise it will be used for this run only.", default=True
-        )
+        should_save = Confirm.ask("Save config? Otherwise it will be used for this run only.", default=True)
 
         if should_save:
             self.save_config()

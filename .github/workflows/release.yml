@@ -12,7 +12,7 @@ on:
 jobs:
   release:
     name: Release
-    runs-on: mambaorg/micromamba:1.5.8
+    runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
@@ -20,17 +20,23 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332   # v4
       with:
         fetch-depth: 0
+    - uses: mamba-org/setup-micromamba@v1
+      with:
+        micromamba-version: 1.5.8-0
+        environment-file: base_env.yml
+        init-shell: >-
+          bash
+        cache-environment: true
+      post-cleanup: all
     - name: Setup Node.js
       uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b   # v4
       with:
         node-version: lts/*
-    - name: Setup mamba
+    - name: Setup poetry
       run: |
-        micromamba install -y -n base -f base_env.yml && micromamba clean --all --yes
-        eval "$(micromamba shell hook --shell bash)"
-        micromamba activate base
         poetry config virtualenvs.create false
-
+        poetry install
+        poetry build
     - name: Release
       env:
         GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
