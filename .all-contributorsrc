@@ -1,0 +1,26 @@
+{
+  "projectName": "experiment-runner",
+  "projectOwner": "AnotherStranger",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "AnotherStranger",
+      "name": "Anotherstranger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6563442?v=4",
+      "profile": "https://github.com/AnotherStranger",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
