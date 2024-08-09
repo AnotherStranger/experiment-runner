@@ -119,9 +119,8 @@
       }
     ],
     [
-      "@semantic-release/gitlab",
+      "@semantic-release/github",
       {
-        "gitlabUrl": "https://git.fh-aachen.de",
         "assets": [
           {
             "path": "dist/*.tar.gz",
