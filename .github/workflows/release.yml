@@ -31,12 +31,15 @@ jobs:
       uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b   # v4
       with:
         node-version: lts/*
+      shell: micromamba-shell {0}
     - name: Setup poetry
       run: |
         poetry config virtualenvs.create false
         poetry install
         poetry build
+      shell: micromamba-shell {0}
     - name: Release
       env:
         GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
       run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
+      shell: micromamba-shell {0}
