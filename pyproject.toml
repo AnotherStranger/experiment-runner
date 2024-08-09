@@ -6,7 +6,7 @@ requires = ["poetry-core>=1.0.0"]
 authors = ["André Büsgen <andre.buesgen@posteo.de>"]
 description = "Tool for running your own experiments on CUDA devices."
 name = "experiment-runner"
-version = "1.1.0-rc.1"
+version = "1.1.0-rc.2"
 
 [tool.poetry.dependencies]
 omegaconf = "^2.3.0"
