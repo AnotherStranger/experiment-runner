@@ -12,7 +12,7 @@ on:
 jobs:
   release:
     name: Release
-    runs-on: ubuntu-latest
+    runs-on: mambaorg/micromamba:1.5.8
     permissions:
       contents: write
     steps:
@@ -24,7 +24,14 @@ jobs:
       uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b   # v4
       with:
         node-version: lts/*
+    - name: Setup mamba
+      run:
+      - micromamba install -y -n base -f base_env.yml && micromamba clean --all --yes
+      - eval "$(micromamba shell hook --shell bash)"
+      - micromamba activate base
+      - poetry config virtualenvs.create false
+
     - name: Release
       env:
         GH_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
-      run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits semantic-release semantic-release-replace
+      run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
