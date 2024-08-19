@@ -1,3 +1,5 @@
+# [1.1.0-rc.7](https://github.com/AnotherStranger/experiment-runner/compare/v1.1.0-rc.6...v1.1.0-rc.7) (2024-08-19)
+
 # [1.1.0-rc.6](https://github.com/AnotherStranger/experiment-runner/compare/v1.1.0-rc.5...v1.1.0-rc.6) (2024-08-12)
 
 # [1.1.0-rc.5](https://github.com/AnotherStranger/experiment-runner/compare/v1.1.0-rc.4...v1.1.0-rc.5) (2024-08-09)
