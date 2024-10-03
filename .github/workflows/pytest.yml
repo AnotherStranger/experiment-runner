@@ -1,4 +1,4 @@
-name: pre-commit
+name: pytest
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -11,7 +11,7 @@ on:
     - '**'
 
 jobs:
-  pre-commit:
+  pytest:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -31,6 +31,6 @@ jobs:
         poetry install
         poetry build
       shell: micromamba-shell {0}
-    - name: Run pre-commit
-      run: pre-commit run --all-files
+    - name: Run tests
+      run: ./test.sh
       shell: micromamba-shell {0}

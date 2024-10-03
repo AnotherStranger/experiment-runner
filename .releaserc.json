@@ -115,7 +115,7 @@
     [
       "@semantic-release/exec",
       {
-        "prepareCmd": "./build.sh -s"
+        "prepareCmd": "./build.sh -ksl"
       }
     ],
     [
@@ -136,6 +136,12 @@
             "target": "generic_package"
           }
         ]
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
       }
     ],
     [

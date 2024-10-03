@@ -2,13 +2,15 @@
 
 DEV_MODE="--remove-output"
 STATIC_MODE="no"
-export CCFLAGS="-Os -pipe"
+LTO="no"
 
 help(){
   echo "This command builds a single executable from the python project"
-  echo "Usage: $(basename "$0") [-d] [-s]"
-  echo "  -d:"
-  echo "      Development mode. Keep build files after building"
+  echo "Usage: $(basename "$0") [-k] [-s] [-l]"
+  echo "  -k:"
+  echo "      Keep build files after building"
+  echo "  -l:"
+  echo "      Enable LTO"
   echo "  -s:"
   echo "      Use static-libphython attribute."
   echo "  -h:"
@@ -18,13 +20,16 @@ help(){
   exit 0
 }
 
-while getopts 'ds?h' OPTION; do
+while getopts 'ksl?h' OPTION; do
   case "$OPTION" in
-  d)
+  k)
     DEV_MODE=""
   ;;
   s)
     STATIC_MODE="yes"
+  ;;
+  l)
+    LTO="yes"
   ;;
   ?)
     help
@@ -43,10 +48,11 @@ poetry run python -m nuitka \
   --include-package=tabulate \
   --include-package=shellingham \
   --include-package=pygments \
-  --lto=no \
+  --lto=$LTO \
   --product-name="experiment-runner" \
   --product-version="$(poetry version -s | grep -oE '^[0-9]+\.[0-9]+\.[0-9]+')"  \
   --output-dir=dist \
   --output-filename=experiment \
+  --prefer-source-code \
   $DEV_MODE \
   experiment_runner/cli/main.py
