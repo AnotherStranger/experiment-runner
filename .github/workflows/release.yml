@@ -1,7 +1,7 @@
 name: Release
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}-${{ github.head_ref || github.ref_name }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 on:
@@ -23,7 +23,19 @@ jobs:
       uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332   # v4
       with:
         fetch-depth: 0
-    - uses: mamba-org/setup-micromamba@v1
+    - name: Cache compilation results
+      uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
+      env:
+        cache-name: cache-nuitka
+      with:
+        path: ~/nuitka-cache
+        key: ${{ runner.os }}-build-${{ env.cache-name }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - uses: mamba-org/setup-micromamba@f8b8a1e23a26f60a44c853292711bacfd3eac822 # v1
       with:
         micromamba-version: 1.5.8-0
         environment-file: env.yml
@@ -33,11 +45,12 @@ jobs:
     - name: Setup poetry
       run: |
         poetry config virtualenvs.create false
-        poetry install
-        poetry build
       shell: micromamba-shell {0}
     - name: Release
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
+        NUITKA_CACHE_DIR: ~/nuitka-cache
+      run: |
+        mkdir ~/nuitka-cache
+        npx --package @semantic-release/git --package @semantic-release/changelog --package conventional-changelog-conventionalcommits --package semantic-release-replace-plugin  --package @semantic-release/exec semantic-release
       shell: micromamba-shell {0}
