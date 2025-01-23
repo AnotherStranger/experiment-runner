@@ -35,7 +35,7 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - uses: mamba-org/setup-micromamba@4b9113af4fba0e9e1124b252dd6497a419e7396d # v1
+    - uses: mamba-org/setup-micromamba@0dea6379afdaffa5d528b3d1dabc45da37f443fc # v2
       with:
         micromamba-version: 1.5.8-0
         environment-file: env.yml
