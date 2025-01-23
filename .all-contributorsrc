@@ -1,0 +1,56 @@
+{
+  "projectName": "experiment-runner",
+  "projectOwner": "AnotherStranger",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "AnotherStranger",
+      "name": "Anotherstranger",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6563442?v=4",
+      "profile": "https://github.com/AnotherStranger",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "tomvonwirth",
+      "name": "tomvonwirth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/155973942?v=4",
+      "profile": "https://github.com/tomvonwirth",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "philipp-kohl",
+      "name": "Philipp Kohl",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82207307?v=4",
+      "profile": "https://github.com/philipp-kohl",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "levithas",
+      "name": "levithas",
+      "avatar_url": "https://avatars.githubusercontent.com/u/95447711?v=4",
+      "profile": "https://github.com/levithas",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "linkToUsage": true
+}
