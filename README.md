@@ -5,7 +5,137 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- markdownlint-restore -->
 
-Tool to run experiments on a Workstation/Computer
+Experiment Runner is a command-line interface (CLI) application that helps you manage and run experiments.
+
+## Usage
+
+### Commands
+
+#### create-config
+
+`experiment create-config [OPTIONS]`
+
+Create or edit the configuration file.
+
+* `--config-path PATH`: Specify the path to the configuration file.
+* `--help`: Show help message and exit.
+
+Example:
+
+```bash
+experiment create-config --config-path /path/to/config.yml
+```
+
+#### gpu-info
+
+`experiment gpu-info [OPTIONS]`
+
+Print current GPU utilization information.
+
+* `--attributes ATTRIBUTES`: Specify which attributes to display (e.g., memory, temperature).
+* `--help`: Show help message and exit.
+
+Example:
+
+```bash
+experiment gpu-info --attributes memory,temperature
+```
+
+#### gpu-usage-report
+
+`experiment gpu-usage-report`
+
+Print a report of GPU usage over time.
+
+No options available.
+
+Example:
+
+```bash
+experiment gpu-usage-report
+```
+
+#### print-gpus-env
+
+`experiment print-gpus-env [OPTIONS]`
+
+Print environment variables related to GPUs.
+
+* `--help`: Show help message and exit.
+
+Example:
+
+```bash
+experiment print-gpus-env
+```
+
+#### run
+
+`experiment run [COMMAND] [OPTIONS]`
+
+Run an experiment with the specified command.
+
+* `command TEXT`: The command to execute.
+* `--gpu-selection STRATEGY`: Specify the GPU selection strategy (e.g., first, last, random).
+* `--num-gpus INTEGER`: Specify the number of GPUs to use.
+* `--send-mail`/`--no-send-mail`: Send an email after the experiment finishes or fails.
+* `--wait-for-gpus`/`--no-wait-for-gpus`: Wait until the specified number of GPUs are available.
+* `--logging PATH`: Write output to a file at the specified location.
+* `--config-path PATH`: Use the specified configuration file.
+
+Example:
+
+```bash
+experiment run "python my_experiment.py" --gpu-selection first --num-gpus 2 --send-mail --wait-for-gpus
+```
+
+#### show-config
+
+`experiment show-config [OPTIONS]`
+
+Display the current configuration settings.
+
+* `--config-path PATH`: Specify the path to the configuration file.
+* `--help`: Show help message and exit.
+
+Example:
+
+```bash
+experiment show-config --config-path /path/to/config.yml
+```
+
+#### test-mail
+
+`experiment test-mail SUBJECT MESSAGE [OPTIONS]`
+
+Send a test email using the mailer.
+
+* `subject TEXT`: The subject of the email.
+* `message TEXT`: The body of the email.
+* `--config-path PATH`: Specify the path to the configuration file.
+* `--help`: Show help message and exit.
+
+Example:
+
+```bash
+experiment test-mail "Test Email" "This is a test email." --config-path /path/to/config.yml
+```
+
+#### version
+
+`experiment version`
+
+Display the version of Experiment Runner.
+
+No options available.
+
+Example:
+
+```bash
+experiment version
+```
+
+Note: This guide provides an overview of the available commands and options. For more detailed information, use the `--help` option with each command.
 
 ## Development Setup
 
@@ -37,7 +167,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" size="13px" colspan="7">
         <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
-          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
+        <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
         </img>
       </td>
     </tr>
